@@ -1,0 +1,72 @@
+---
+title: "Chapter 3"
+subtitle: "Distribution Theory"
+output:
+  pdf_document:
+    number_sections: yes
+  html_document: default
+---
+
+#Distribution Theory {#ch-distthry}
+
+##Introduction
+
+What if it  is not plausible that a response is normally distributed? You may want to construct a model to predict whether a prospective student will enroll at a school or  model the lifetimes of patients following a particular surgery.  In the first case you have a binary response (enrolls (1) or does not enroll (0)), and in the second case you are likely to  have very skewed data with many similar values and a few hardy souls with extremely long survival. These responses are not expected to be normally distributed; other distributions will be needed to describe and  model binary or lifetime data. Non-normal responses are encountered in a large number of situations. Luckily, there are quite a few possibilities for models. In this chapter, we begin with some general definitions, terms, and notation for different types of distributions with some examples of applications. We then create new random variables using combinations of random variables.  
+
+A table of contents is presented below; details forthcoming.  
+
+###Characteristics of Random Variables
+
+###Location, scale and shape parameters
+
+##Modeling Responses
+
+###Discrete Random Variables
+
+####Hypergeometric
+
+###Bernoulli Process
+
+####Binary Random Variable
+
+####Binomial
+
+####Geometric
+
+####Negative Binomial
+
+###Poisson Process
+
+####Poisson Random Variable
+
+###Continuous Random Variables
+
+####Exponential
+
+####Gamma
+
+####Gaussian or Normal
+
+####Beta
+
+##Distributions used in Testing
+
+###$\chi^2$
+
+###F
+
+##Mixtures
+
+###Zero-inflated Poisson
+
+###Mixture of Two Normal Distributions
+
+###Beta-Binomial
+
+###Negative Binomial
+
+##Exercises
+
+###Conceptual Exercises
+
+###Guided Exercises

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Broadening Your Statistical Horizons</title>
+  <meta name="description" content="Test.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Broadening Your Statistical Horizons" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Test." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Broadening Your Statistical Horizons" />
+  
+  <meta name="twitter:description" content="Test." />
+  
+
+<meta name="author" content="J. Legler and P. Roback">
+
+
+<meta name="date" content="2018-02-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="ch-logreg.html">
+<link rel="next" href="ch-multilevelintro.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Broadening Your Statistical Horizons</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html"><i class="fa fa-check"></i><b>1</b> Review of Multiple Linear Regression</a><ul>
+<li class="chapter" data-level="1.1" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#introduction"><i class="fa fa-check"></i><b>1.2</b> Introduction</a></li>
+<li class="chapter" data-level="1.3" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#ordinary-least-squares-ols-assumptions"><i class="fa fa-check"></i><b>1.3</b> Ordinary Least Squares (OLS) Assumptions</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#cases-that-do-not-violate-the-ols-assumptions-for-inference"><i class="fa fa-check"></i><b>1.3.1</b> Cases that do not violate the OLS assumptions for inference</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#cases-where-the-ols-assumptions-for-inference-are-violated"><i class="fa fa-check"></i><b>1.3.2</b> Cases where the OLS assumptions for inference are violated</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#cs:derby"><i class="fa fa-check"></i><b>1.4</b> Case Study: Kentucky Derby</a></li>
+<li class="chapter" data-level="1.5" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#explore"><i class="fa fa-check"></i><b>1.5</b> Initial Exploratory Analyses</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#data-organization"><i class="fa fa-check"></i><b>1.5.1</b> Data Organization</a></li>
+<li class="chapter" data-level="1.5.2" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#univariate-summaries"><i class="fa fa-check"></i><b>1.5.2</b> Univariate Summaries</a></li>
+<li class="chapter" data-level="1.5.3" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#bivariate-summaries"><i class="fa fa-check"></i><b>1.5.3</b> Bivariate Summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#multreg"><i class="fa fa-check"></i><b>1.6</b> Multiple linear regression modeling</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#SLRcontinuous"><i class="fa fa-check"></i><b>1.6.1</b> Simple linear regression with a continuous predictor</a></li>
+<li class="chapter" data-level="1.6.2" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#simple-linear-regression-with-a-binary-predictor"><i class="fa fa-check"></i><b>1.6.2</b> Simple linear regression with a binary predictor</a></li>
+<li class="chapter" data-level="1.6.3" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#multiple-linear-regression-with-two-predictors"><i class="fa fa-check"></i><b>1.6.3</b> Multiple linear regression with two predictors</a></li>
+<li class="chapter" data-level="1.6.4" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#multreg-inference"><i class="fa fa-check"></i><b>1.6.4</b> Inference in multiple linear regression</a></li>
+<li class="chapter" data-level="1.6.5" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#multiple-linear-regression-with-an-interaction-term"><i class="fa fa-check"></i><b>1.6.5</b> Multiple linear regression with an interaction term</a></li>
+<li class="chapter" data-level="1.6.6" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#multreg_build"><i class="fa fa-check"></i><b>1.6.6</b> Building a multiple linear regression model</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#preview"><i class="fa fa-check"></i><b>1.7</b> Preview</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#soccer"><i class="fa fa-check"></i><b>1.7.1</b> Soccer</a></li>
+<li class="chapter" data-level="1.7.2" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#elephant-mating"><i class="fa fa-check"></i><b>1.7.2</b> Elephant Mating</a></li>
+<li class="chapter" data-level="1.7.3" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#parenting-and-gang-activity"><i class="fa fa-check"></i><b>1.7.3</b> Parenting and Gang Activity</a></li>
+<li class="chapter" data-level="1.7.4" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#crime"><i class="fa fa-check"></i><b>1.7.4</b> Crime</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#conceptual-exercises"><i class="fa fa-check"></i><b>1.8.1</b> Conceptual Exercises</a></li>
+<li class="chapter" data-level="1.8.2" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#guided-exercise"><i class="fa fa-check"></i><b>1.8.2</b> Guided Exercise</a></li>
+<li class="chapter" data-level="1.8.3" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#open-ended-exercises"><i class="fa fa-check"></i><b>1.8.3</b> Open-ended Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html"><i class="fa fa-check"></i><b>2</b> Beyond Least Squares: Using Likelihoods to Fit and Compare Models</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#learning-objectives-1"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#case-study-does-sex-run-in-families"><i class="fa fa-check"></i><b>2.2</b> Case Study: Does sex run in families?</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#research-questions"><i class="fa fa-check"></i><b>2.2.1</b> Research Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#model-0-sex-unconditional-model-equal-probabilities-independence"><i class="fa fa-check"></i><b>2.3</b> Model 0: Sex Unconditional Model (Equal probabilities, Independence)</a></li>
+<li class="chapter" data-level="2.4" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#sex_unconditional_model"><i class="fa fa-check"></i><b>2.4</b> Model 1: Sex Unconditional Model (Any Probability, Independence) and the Principle of Maximum Likelihood</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#what-is-a-likelihood"><i class="fa fa-check"></i><b>2.4.1</b> What is a likelihood?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#findMLE.sec"><i class="fa fa-check"></i><b>2.4.2</b> Finding MLEs</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#summary"><i class="fa fa-check"></i><b>2.4.3</b> Summary</a></li>
+<li class="chapter" data-level="2.4.4" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#is-a-likelihood-a-probability-function-optional"><i class="fa fa-check"></i><b>2.4.4</b> Is a likelihood a probability function? (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#sex_conditional.sec"><i class="fa fa-check"></i><b>2.5</b> Model 2: A Sex Conditional Model (Sex Bias) and Model Specification</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#model-specification"><i class="fa fa-check"></i><b>2.5.1</b> Model Specification</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#application-to-hypothetical-data"><i class="fa fa-check"></i><b>2.5.2</b> Application to Hypothetical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#case-study-analysis-of-the-nlsy-data"><i class="fa fa-check"></i><b>2.6</b> Case Study: Analysis of the NLSY data</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#model-building-plan"><i class="fa fa-check"></i><b>2.6.1</b> Model Building Plan</a></li>
+<li class="chapter" data-level="2.6.2" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#EDA.sec"><i class="fa fa-check"></i><b>2.6.2</b> Family Composition of Boys and Girls, NLSY: Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="2.6.3" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#likelihood-for-the-sex-unconditional-model-the-nlsy-data"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood for the Sex Unconditional Model: the NLSY data</a></li>
+<li class="chapter" data-level="2.6.4" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#sex_cond_lik.sec"><i class="fa fa-check"></i><b>2.6.4</b> Likelihood for the Sex Conditional Model</a></li>
+<li class="chapter" data-level="2.6.5" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#comparing-the-sex-unconditional-to-the-sex-conditional-model"><i class="fa fa-check"></i><b>2.6.5</b> Comparing the Sex Unconditional to the Sex Conditional Model</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#model-3-stopping-rule-model-waiting-for-a-boy"><i class="fa fa-check"></i><b>2.7</b> Model 3: Stopping Rule Model (Waiting for a boy)</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#non-nested-models"><i class="fa fa-check"></i><b>2.7.1</b> Non-nested Models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#summary-of-model-building"><i class="fa fa-check"></i><b>2.8</b> Summary of Model Building</a></li>
+<li class="chapter" data-level="2.9" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#likelihood-based-methods"><i class="fa fa-check"></i><b>2.9</b> Likelihood-based Methods</a></li>
+<li class="chapter" data-level="2.10" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#likelihoods-and-this-course"><i class="fa fa-check"></i><b>2.10</b> Likelihoods and this Course</a></li>
+<li class="chapter" data-level="2.11" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#exercises-1"><i class="fa fa-check"></i><b>2.11</b> Exercises</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#conceptual-exercises-1"><i class="fa fa-check"></i><b>2.11.1</b> Conceptual Exercises</a></li>
+<li class="chapter" data-level="2.11.2" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#guided-exercise-1"><i class="fa fa-check"></i><b>2.11.2</b> Guided Exercise</a></li>
+<li class="chapter" data-level="2.11.3" data-path="ch-beyondmost.html"><a href="ch-beyondmost.html#open-ended-exercise"><i class="fa fa-check"></i><b>2.11.3</b> Open-ended Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-distthry.html"><a href="ch-distthry.html"><i class="fa fa-check"></i><b>3</b> Distribution Theory</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch-distthry.html"><a href="ch-distthry.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch-distthry.html"><a href="ch-distthry.html#characteristics-of-random-variables"><i class="fa fa-check"></i><b>3.1.1</b> Characteristics of Random Variables</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch-distthry.html"><a href="ch-distthry.html#location-scale-and-shape-parameters"><i class="fa fa-check"></i><b>3.1.2</b> Location, scale and shape parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch-distthry.html"><a href="ch-distthry.html#modeling-responses"><i class="fa fa-check"></i><b>3.2</b> Modeling Responses</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ch-distthry.html"><a href="ch-distthry.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete Random Variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch-distthry.html"><a href="ch-distthry.html#bernoulli-process"><i class="fa fa-check"></i><b>3.2.2</b> Bernoulli Process</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch-distthry.html"><a href="ch-distthry.html#poisson-process"><i class="fa fa-check"></i><b>3.2.3</b> Poisson Process</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ch-distthry.html"><a href="ch-distthry.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.4</b> Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch-distthry.html"><a href="ch-distthry.html#distributions-used-in-testing"><i class="fa fa-check"></i><b>3.3</b> Distributions used in Testing</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="ch-distthry.html"><a href="ch-distthry.html#chi2"><i class="fa fa-check"></i><b>3.3.1</b> <span class="math inline">\(\chi^2\)</span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch-distthry.html"><a href="ch-distthry.html#f"><i class="fa fa-check"></i><b>3.3.2</b> F</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch-distthry.html"><a href="ch-distthry.html#mixtures"><i class="fa fa-check"></i><b>3.4</b> Mixtures</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch-distthry.html"><a href="ch-distthry.html#zero-inflated-poisson"><i class="fa fa-check"></i><b>3.4.1</b> Zero-inflated Poisson</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch-distthry.html"><a href="ch-distthry.html#mixture-of-two-normal-distributions"><i class="fa fa-check"></i><b>3.4.2</b> Mixture of Two Normal Distributions</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch-distthry.html"><a href="ch-distthry.html#beta-binomial"><i class="fa fa-check"></i><b>3.4.3</b> Beta-Binomial</a></li>
+<li class="chapter" data-level="3.4.4" data-path="ch-distthry.html"><a href="ch-distthry.html#negative-binomial-1"><i class="fa fa-check"></i><b>3.4.4</b> Negative Binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch-distthry.html"><a href="ch-distthry.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="ch-distthry.html"><a href="ch-distthry.html#conceptual-exercises-2"><i class="fa fa-check"></i><b>3.5.1</b> Conceptual Exercises</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch-distthry.html"><a href="ch-distthry.html#guided-exercises"><i class="fa fa-check"></i><b>3.5.2</b> Guided Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html"><i class="fa fa-check"></i><b>4</b> Poisson Regression</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#preface-1"><i class="fa fa-check"></i><b>4.2</b> Preface</a></li>
+<li class="chapter" data-level="4.3" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#poisintrosec"><i class="fa fa-check"></i><b>4.3</b> Introduction to Poisson Regression</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#initial-examples"><i class="fa fa-check"></i><b>4.3.1</b> Initial Examples</a></li>
+<li class="chapter" data-level="4.3.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#sec-Prop"><i class="fa fa-check"></i><b>4.3.2</b> Poisson Random Variables</a></li>
+<li class="chapter" data-level="4.3.3" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#modeling-with-poisson-variables"><i class="fa fa-check"></i><b>4.3.3</b> Modeling with Poisson variables</a></li>
+<li class="chapter" data-level="4.3.4" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#a-graphical-look-at-poisson-regression"><i class="fa fa-check"></i><b>4.3.4</b> A Graphical Look at Poisson Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#case-studies-overview"><i class="fa fa-check"></i><b>4.4</b> Case Studies Overview</a></li>
+<li class="chapter" data-level="4.5" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#case-study-household-size-in-haiti"><i class="fa fa-check"></i><b>4.5</b> Case Study: Household Size in Haiti</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#research-question"><i class="fa fa-check"></i><b>4.5.1</b> Research Question</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#data-collection"><i class="fa fa-check"></i><b>4.5.2</b> Data Collection</a></li>
+<li class="chapter" data-level="4.5.3" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#data-organization-1"><i class="fa fa-check"></i><b>4.5.3</b> Data Organization</a></li>
+<li class="chapter" data-level="4.5.4" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>4.5.4</b> Exploratory Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#likelihood.sec"><i class="fa fa-check"></i><b>4.6</b> Using Likelihoods to fit Poisson Regression Models (Optional)</a></li>
+<li class="chapter" data-level="4.7" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#modeling"><i class="fa fa-check"></i><b>4.7</b> Modeling</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#first-order-model"><i class="fa fa-check"></i><b>4.7.1</b> First Order Model</a></li>
+<li class="chapter" data-level="4.7.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#sec-PoisInference"><i class="fa fa-check"></i><b>4.7.2</b> Estimation and Inference</a></li>
+<li class="chapter" data-level="4.7.3" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#using-deviances-to-compare-models"><i class="fa fa-check"></i><b>4.7.3</b> Using Deviances to Compare Models</a></li>
+<li class="chapter" data-level="4.7.4" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#poisson-regression-assumptions-1"><i class="fa fa-check"></i><b>4.7.4</b> Poisson Regression Assumptions</a></li>
+<li class="chapter" data-level="4.7.5" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#residual-plot"><i class="fa fa-check"></i><b>4.7.5</b> Residual Plot</a></li>
+<li class="chapter" data-level="4.7.6" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#residuals-for-poisson-models-optional"><i class="fa fa-check"></i><b>4.7.6</b> Residuals for Poisson Models (Optional)</a></li>
+<li class="chapter" data-level="4.7.7" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#second-order-model"><i class="fa fa-check"></i><b>4.7.7</b> Second Order Model</a></li>
+<li class="chapter" data-level="4.7.8" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#finding-the-age-where-the-number-in-the-house-is-a-maximum"><i class="fa fa-check"></i><b>4.7.8</b> Finding the age where the number in the house is a maximum</a></li>
+<li class="chapter" data-level="4.7.9" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#adding-a-covariate"><i class="fa fa-check"></i><b>4.7.9</b> Adding a covariate</a></li>
+<li class="chapter" data-level="4.7.10" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#sec-PoisGOF"><i class="fa fa-check"></i><b>4.7.10</b> Goodness-of-fit</a></li>
+<li class="chapter" data-level="4.7.11" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#least-squares-regression-vs.poisson-regression"><i class="fa fa-check"></i><b>4.7.11</b> Least Squares Regression vs. Poisson Regression</a></li>
+<li class="chapter" data-level="4.7.12" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#optional-topics-to-be-developed"><i class="fa fa-check"></i><b>4.7.12</b> Optional topics to be developed</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#case-study-campus-crime"><i class="fa fa-check"></i><b>4.8</b> Case Study: Campus Crime</a></li>
+<li class="chapter" data-level="4.9" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#analysis-for-crime-data"><i class="fa fa-check"></i><b>4.9</b> Analysis for crime data</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#research-question-1"><i class="fa fa-check"></i><b>4.9.1</b> Research Question</a></li>
+<li class="chapter" data-level="4.9.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#data-organization-2"><i class="fa fa-check"></i><b>4.9.2</b> Data Organization</a></li>
+<li class="chapter" data-level="4.9.3" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#exploratory-data-analysis-1"><i class="fa fa-check"></i><b>4.9.3</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.9.4" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#accounting-for-enrollment"><i class="fa fa-check"></i><b>4.9.4</b> Accounting for Enrollment</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#checking-assumptions"><i class="fa fa-check"></i><b>4.10</b> Checking Assumptions</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#is-the-mean-equal-to-the-variance"><i class="fa fa-check"></i><b>4.10.1</b> Is the Mean equal to the Variance?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#modeling-1"><i class="fa fa-check"></i><b>4.11</b> Modeling</a></li>
+<li class="chapter" data-level="4.12" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#sec-overdispPois"><i class="fa fa-check"></i><b>4.12</b> Overdispersion</a><ul>
+<li class="chapter" data-level="4.12.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#dispersion-parameter-adjustment"><i class="fa fa-check"></i><b>4.12.1</b> Dispersion parameter adjustment</a></li>
+<li class="chapter" data-level="4.12.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#negative-binomial-modeling"><i class="fa fa-check"></i><b>4.12.2</b> Negative binomial modeling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#case-study-weekend-drinking-csdrinking"><i class="fa fa-check"></i><b>4.13</b> Case Study: Weekend drinking {cs:drinking}</a><ul>
+<li class="chapter" data-level="4.13.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#research-question-2"><i class="fa fa-check"></i><b>4.13.1</b> Research Question</a></li>
+<li class="chapter" data-level="4.13.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#data-organization-3"><i class="fa fa-check"></i><b>4.13.2</b> Data Organization</a></li>
+<li class="chapter" data-level="4.13.3" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#exploratory-data-analysis-2"><i class="fa fa-check"></i><b>4.13.3</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="4.13.4" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#modeling-2"><i class="fa fa-check"></i><b>4.13.4</b> Modeling</a></li>
+<li class="chapter" data-level="4.13.5" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#fitting-a-zip-model"><i class="fa fa-check"></i><b>4.13.5</b> Fitting a ZIP Model</a></li>
+<li class="chapter" data-level="4.13.6" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#comparing-the-ordinary-poisson-regression-model-to-the-zip-model"><i class="fa fa-check"></i><b>4.13.6</b> Comparing the ordinary Poisson regression model to the ZIP model</a></li>
+<li class="chapter" data-level="4.13.7" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#residual-plot-1"><i class="fa fa-check"></i><b>4.13.7</b> Residual Plot</a></li>
+<li class="chapter" data-level="4.13.8" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#caveats-and-extensions"><i class="fa fa-check"></i><b>4.13.8</b> Caveats and Extensions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#references"><i class="fa fa-check"></i><b>4.14</b> References</a></li>
+<li class="chapter" data-level="4.15" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#exercises-3"><i class="fa fa-check"></i><b>4.15</b> Exercises</a><ul>
+<li class="chapter" data-level="4.15.1" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#exer:concept"><i class="fa fa-check"></i><b>4.15.1</b> Conceptual Exercises</a></li>
+<li class="chapter" data-level="4.15.2" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#guided-exercise-2"><i class="fa fa-check"></i><b>4.15.2</b> Guided Exercise</a></li>
+<li class="chapter" data-level="4.15.3" data-path="ch-poissonreg.html"><a href="ch-poissonreg.html#open-ended"><i class="fa fa-check"></i><b>4.15.3</b> Open-ended</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch-glms.html"><a href="ch-glms.html"><i class="fa fa-check"></i><b>5</b> Generalized Linear Models (GLMs): A Unifying Theory</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch-glms.html"><a href="ch-glms.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="ch-glms.html"><a href="ch-glms.html#one-parameter-exponential-families"><i class="fa fa-check"></i><b>5.2</b> One parameter exponential families</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="ch-glms.html"><a href="ch-glms.html#one-parameter-exponential-family-possion"><i class="fa fa-check"></i><b>5.2.1</b> One Parameter Exponential Family: Possion</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ch-glms.html"><a href="ch-glms.html#one-parameter-exponential-family-normal"><i class="fa fa-check"></i><b>5.2.2</b> One parameter exponential family: Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ch-glms.html"><a href="ch-glms.html#generalized-linear-modeling"><i class="fa fa-check"></i><b>5.3</b> Generalized Linear Modeling</a></li>
+<li class="chapter" data-level="5.4" data-path="ch-glms.html"><a href="ch-glms.html#exercises-4"><i class="fa fa-check"></i><b>5.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch-logreg.html"><a href="ch-logreg.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch-logreg.html"><a href="ch-logreg.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="ch-logreg.html"><a href="ch-logreg.html#introduction-2"><i class="fa fa-check"></i><b>6.2</b> Introduction</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ch-logreg.html"><a href="ch-logreg.html#binary-responses"><i class="fa fa-check"></i><b>6.2.1</b> Binary Responses</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ch-logreg.html"><a href="ch-logreg.html#binomial-responses-sums-of-binary-responses"><i class="fa fa-check"></i><b>6.2.2</b> Binomial Responses: sums of binary responses</a></li>
+<li class="chapter" data-level="6.2.3" data-path="ch-logreg.html"><a href="ch-logreg.html#an-example-binge-drinking"><i class="fa fa-check"></i><b>6.2.3</b> An Example: Binge Drinking</a></li>
+<li class="chapter" data-level="6.2.4" data-path="ch-logreg.html"><a href="ch-logreg.html#a-graphical-look-at-binomial-regression"><i class="fa fa-check"></i><b>6.2.4</b> A Graphical Look at Binomial Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ch-logreg.html"><a href="ch-logreg.html#sec-modelframework"><i class="fa fa-check"></i><b>6.3</b> A Modeling Framework</a></li>
+<li class="chapter" data-level="6.4" data-path="ch-logreg.html"><a href="ch-logreg.html#case-studies-overview-1"><i class="fa fa-check"></i><b>6.4</b> Case Studies Overview</a></li>
+<li class="chapter" data-level="6.5" data-path="ch-logreg.html"><a href="ch-logreg.html#glm-theory-for-binomial-outcomes"><i class="fa fa-check"></i><b>6.5</b> GLM Theory for Binomial Outcomes</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="ch-logreg.html"><a href="ch-logreg.html#case-study-soccer-goalkeeper-saves"><i class="fa fa-check"></i><b>6.5.1</b> Case Study: Soccer Goalkeeper Saves</a></li>
+<li class="chapter" data-level="6.5.2" data-path="ch-logreg.html"><a href="ch-logreg.html#research-question-3"><i class="fa fa-check"></i><b>6.5.2</b> Research Question</a></li>
+<li class="chapter" data-level="6.5.3" data-path="ch-logreg.html"><a href="ch-logreg.html#data-organization-4"><i class="fa fa-check"></i><b>6.5.3</b> Data Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="ch-logreg.html"><a href="ch-logreg.html#case-study-reconstructing-alabama"><i class="fa fa-check"></i><b>6.6</b> Case Study: Reconstructing Alabama</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="ch-logreg.html"><a href="ch-logreg.html#research-question-4"><i class="fa fa-check"></i><b>6.6.1</b> Research Question</a></li>
+<li class="chapter" data-level="6.6.2" data-path="ch-logreg.html"><a href="ch-logreg.html#data-organization-5"><i class="fa fa-check"></i><b>6.6.2</b> Data Organization</a></li>
+<li class="chapter" data-level="6.6.3" data-path="ch-logreg.html"><a href="ch-logreg.html#exploratory-data-analysis-3"><i class="fa fa-check"></i><b>6.6.3</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="6.6.4" data-path="ch-logreg.html"><a href="ch-logreg.html#modeling-overview"><i class="fa fa-check"></i><b>6.6.4</b> Modeling Overview</a></li>
+<li class="chapter" data-level="6.6.5" data-path="ch-logreg.html"><a href="ch-logreg.html#results"><i class="fa fa-check"></i><b>6.6.5</b> Results</a></li>
+<li class="chapter" data-level="6.6.6" data-path="ch-logreg.html"><a href="ch-logreg.html#least-squares-regression-vs.logistic-regression"><i class="fa fa-check"></i><b>6.6.6</b> Least Squares Regression vs. Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ch-logreg.html"><a href="ch-logreg.html#case-study-who-wants-to-lose-weight-sex-media-sports-and-bmi."><i class="fa fa-check"></i><b>6.7</b> Case Study: Who wants to lose weight? Sex, Media, Sports, and BMI.</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="ch-logreg.html"><a href="ch-logreg.html#background"><i class="fa fa-check"></i><b>6.7.1</b> Background</a></li>
+<li class="chapter" data-level="6.7.2" data-path="ch-logreg.html"><a href="ch-logreg.html#research-questions-1"><i class="fa fa-check"></i><b>6.7.2</b> Research Questions</a></li>
+<li class="chapter" data-level="6.7.3" data-path="ch-logreg.html"><a href="ch-logreg.html#data-collection-1"><i class="fa fa-check"></i><b>6.7.3</b> Data Collection</a></li>
+<li class="chapter" data-level="6.7.4" data-path="ch-logreg.html"><a href="ch-logreg.html#data-organization-6"><i class="fa fa-check"></i><b>6.7.4</b> Data Organization</a></li>
+<li class="chapter" data-level="6.7.5" data-path="ch-logreg.html"><a href="ch-logreg.html#exploratory-data-analysis-4"><i class="fa fa-check"></i><b>6.7.5</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="6.7.6" data-path="ch-logreg.html"><a href="ch-logreg.html#modeling-3"><i class="fa fa-check"></i><b>6.7.6</b> Modeling</a></li>
+<li class="chapter" data-level="6.7.7" data-path="ch-logreg.html"><a href="ch-logreg.html#discussion"><i class="fa fa-check"></i><b>6.7.7</b> Discussion</a></li>
+<li class="chapter" data-level="6.7.8" data-path="ch-logreg.html"><a href="ch-logreg.html#optional-topics-to-be-developed-1"><i class="fa fa-check"></i><b>6.7.8</b> Optional topics to be developed</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="ch-logreg.html"><a href="ch-logreg.html#references-1"><i class="fa fa-check"></i><b>6.8</b> References</a></li>
+<li class="chapter" data-level="6.9" data-path="ch-logreg.html"><a href="ch-logreg.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="ch-logreg.html"><a href="ch-logreg.html#interpret-article-abstracts"><i class="fa fa-check"></i><b>6.9.1</b> Interpret article abstracts</a></li>
+<li class="chapter" data-level="6.9.2" data-path="ch-logreg.html"><a href="ch-logreg.html#guided-exercises-1"><i class="fa fa-check"></i><b>6.9.2</b> Guided Exercises</a></li>
+<li class="chapter" data-level="6.9.3" data-path="ch-logreg.html"><a href="ch-logreg.html#open-ended-exercises-1"><i class="fa fa-check"></i><b>6.9.3</b> Open-ended Exercises</a></li>
+<li class="chapter" data-level="6.9.4" data-path="ch-logreg.html"><a href="ch-logreg.html#project-ideas"><i class="fa fa-check"></i><b>6.9.4</b> Project Ideas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-corrdata.html"><a href="ch-corrdata.html"><i class="fa fa-check"></i><b>7</b> Correlated Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch-corrdata.html"><a href="ch-corrdata.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="ch-corrdata.html"><a href="ch-corrdata.html#recognizing-correlation"><i class="fa fa-check"></i><b>7.2</b> Recognizing correlation</a></li>
+<li class="chapter" data-level="7.3" data-path="ch-corrdata.html"><a href="ch-corrdata.html#case-study-dams-and-pups-correlated-binary-outcomes"><i class="fa fa-check"></i><b>7.3</b> Case Study: Dams and pups, Correlated Binary Outcomes</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch-corrdata.html"><a href="ch-corrdata.html#sources-of-variability"><i class="fa fa-check"></i><b>7.3.1</b> Sources of Variability</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-corrdata.html"><a href="ch-corrdata.html#analyzing-a-control-group"><i class="fa fa-check"></i><b>7.3.2</b> Analyzing a control group</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch-corrdata.html"><a href="ch-corrdata.html#under-construction"><i class="fa fa-check"></i><b>7.4</b> Under Construction…</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="ch-corrdata.html"><a href="ch-corrdata.html#correlated-data-simulation"><i class="fa fa-check"></i><b>7.4.1</b> Correlated Data Simulation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html"><i class="fa fa-check"></i><b>8</b> Introduction to Multilevel Models</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#cs:music"><i class="fa fa-check"></i><b>8.2</b> Case Study: Music Performance Anxiety</a></li>
+<li class="chapter" data-level="8.3" data-path="ch-MLRreview.html"><a href="ch-MLRreview.html#explore"><i class="fa fa-check"></i><b>8.3</b> Initial Exploratory Analyses</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#organizedata1"><i class="fa fa-check"></i><b>8.3.1</b> Data Organization</a></li>
+<li class="chapter" data-level="8.3.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#explore1"><i class="fa fa-check"></i><b>8.3.2</b> Exploratory Analyses: Univariate Summaries</a></li>
+<li class="chapter" data-level="8.3.3" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#explore2"><i class="fa fa-check"></i><b>8.3.3</b> Exploratory Analyses: Bivariate Summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#twolevelmodeling"><i class="fa fa-check"></i><b>8.4</b> Two level modeling: preliminary considerations</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#multregr"><i class="fa fa-check"></i><b>8.4.1</b> Ignoring the two level structure (not recommended)</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#twostage"><i class="fa fa-check"></i><b>8.4.2</b> A two-stage modeling approach (better but imperfect)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#twolevelmodelingunified"><i class="fa fa-check"></i><b>8.5</b> Two level modeling: a unified approach</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#ourframework"><i class="fa fa-check"></i><b>8.5.1</b> Our framework</a></li>
+<li class="chapter" data-level="8.5.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#random-vs.fixed-effects"><i class="fa fa-check"></i><b>8.5.2</b> Random vs. fixed effects</a></li>
+<li class="chapter" data-level="8.5.3" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#MVN"><i class="fa fa-check"></i><b>8.5.3</b> Distribution of errors: the multivariate normal distribution</a></li>
+<li class="chapter" data-level="8.5.4" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#multileveltechnical"><i class="fa fa-check"></i><b>8.5.4</b> Technical issues when estimating and testing parameters (Optional)</a></li>
+<li class="chapter" data-level="8.5.5" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#initialmodel"><i class="fa fa-check"></i><b>8.5.5</b> An initial model with parameter interpretations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#sec:buildmodel"><i class="fa fa-check"></i><b>8.6</b> Building a multilevel model</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#buildstrategy"><i class="fa fa-check"></i><b>8.6.1</b> Model building strategy</a></li>
+<li class="chapter" data-level="8.6.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#modela"><i class="fa fa-check"></i><b>8.6.2</b> An initial model: unconditional means or random intercepts</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#modelb"><i class="fa fa-check"></i><b>8.7</b> Binary covariates at Level One and Level Two</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#randomslopeandint"><i class="fa fa-check"></i><b>8.7.1</b> Random slopes and intercepts model</a></li>
+<li class="chapter" data-level="8.7.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#pseudoR2"><i class="fa fa-check"></i><b>8.7.2</b> Pseudo <span class="math inline">\(R^2\)</span> values</a></li>
+<li class="chapter" data-level="8.7.3" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#modelc"><i class="fa fa-check"></i><b>8.7.3</b> Adding a covariate at Level Two</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#sec:modeld"><i class="fa fa-check"></i><b>8.8</b> Additional covariates: model comparison and interpretability</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#interp:modeld"><i class="fa fa-check"></i><b>8.8.1</b> Interpretation of parameter estimates</a></li>
+<li class="chapter" data-level="8.8.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#compare:modeld"><i class="fa fa-check"></i><b>8.8.2</b> Model comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#sec:modele"><i class="fa fa-check"></i><b>8.9</b> Center covariates</a></li>
+<li class="chapter" data-level="8.10" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#modelf"><i class="fa fa-check"></i><b>8.10</b> A potential final model for music performance anxiety</a></li>
+<li class="chapter" data-level="8.11" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#multinecessary"><i class="fa fa-check"></i><b>8.11</b> Modeling the multilevel structure: is it really necessary?</a></li>
+<li class="chapter" data-level="8.12" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#notesr8"><i class="fa fa-check"></i><b>8.12</b> Notes on Using R (Optional)</a></li>
+<li class="chapter" data-level="8.13" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#exercises-6"><i class="fa fa-check"></i><b>8.13</b> Exercises</a><ul>
+<li class="chapter" data-level="8.13.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#conceptual-exercises-3"><i class="fa fa-check"></i><b>8.13.1</b> Conceptual Exercises</a></li>
+<li class="chapter" data-level="8.13.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#guided-exercise-3"><i class="fa fa-check"></i><b>8.13.2</b> Guided Exercise</a></li>
+<li class="chapter" data-level="8.13.3" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#open-ended-exercises-2"><i class="fa fa-check"></i><b>8.13.3</b> Open-ended Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch-lon.html"><a href="ch-lon.html"><i class="fa fa-check"></i><b>9</b> Two Level Longitudinal Data</a><ul>
+<li class="chapter" data-level="9.1" data-path="ch-lon.html"><a href="ch-lon.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="ch-lon.html"><a href="ch-lon.html#cs:charter"><i class="fa fa-check"></i><b>9.2</b> Case study: Charter schools</a></li>
+<li class="chapter" data-level="9.3" data-path="ch-lon.html"><a href="ch-lon.html#exploratoryanalysis"><i class="fa fa-check"></i><b>9.3</b> Initial Exploratory Analyses</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="ch-lon.html"><a href="ch-lon.html#data"><i class="fa fa-check"></i><b>9.3.1</b> Data organization</a></li>
+<li class="chapter" data-level="9.3.2" data-path="ch-lon.html"><a href="ch-lon.html#missing"><i class="fa fa-check"></i><b>9.3.2</b> Missing data</a></li>
+<li class="chapter" data-level="9.3.3" data-path="ch-lon.html"><a href="ch-lon.html#generalanalyses"><i class="fa fa-check"></i><b>9.3.3</b> Exploratory analyses for general multilevel models</a></li>
+<li class="chapter" data-level="9.3.4" data-path="ch-lon.html"><a href="ch-lon.html#longitudinalanalyses"><i class="fa fa-check"></i><b>9.3.4</b> Exploratory analyses for longitudinal data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="ch-lon.html"><a href="ch-lon.html#twostage9"><i class="fa fa-check"></i><b>9.4</b> Preliminary two-stage modeling</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="ch-lon.html"><a href="ch-lon.html#lineartwostage"><i class="fa fa-check"></i><b>9.4.1</b> Linear trends within schools</a></li>
+<li class="chapter" data-level="9.4.2" data-path="ch-lon.html"><a href="ch-lon.html#lineartwostageL2effects"><i class="fa fa-check"></i><b>9.4.2</b> Effects of level two covariates on linear time trends</a></li>
+<li class="chapter" data-level="9.4.3" data-path="ch-lon.html"><a href="ch-lon.html#lineartwostageerror"><i class="fa fa-check"></i><b>9.4.3</b> Error structure within schools</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="ch-lon.html"><a href="ch-lon.html#lineartwostageerror"><i class="fa fa-check"></i><b>9.5</b> Initial models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#modela"><i class="fa fa-check"></i><b>9.5.1</b> Unconditional means model</a></li>
+<li class="chapter" data-level="9.5.2" data-path="ch-multilevelintro.html"><a href="ch-multilevelintro.html#modelb"><i class="fa fa-check"></i><b>9.5.2</b> Unconditional growth model</a></li>
+<li class="chapter" data-level="9.5.3" data-path="ch-lon.html"><a href="ch-lon.html#othertimetrends"><i class="fa fa-check"></i><b>9.5.3</b> Modeling other trends over time</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="ch-lon.html"><a href="ch-lon.html#finalmodel"><i class="fa fa-check"></i><b>9.6</b> Building to a final model</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="ch-lon.html"><a href="ch-lon.html#modelc9"><i class="fa fa-check"></i><b>9.6.1</b> Uncontrolled effects of school type</a></li>
+<li class="chapter" data-level="9.6.2" data-path="ch-lon.html"><a href="ch-lon.html#modeld"><i class="fa fa-check"></i><b>9.6.2</b> Add percent free and reduced lunch as a covariate</a></li>
+<li class="chapter" data-level="9.6.3" data-path="ch-lon.html"><a href="ch-lon.html#modelf9"><i class="fa fa-check"></i><b>9.6.3</b> A potential final model with three Level Two covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="ch-lon.html"><a href="ch-lon.html#errorcovariance"><i class="fa fa-check"></i><b>9.7</b> Covariance structure among observations</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="ch-lon.html"><a href="ch-lon.html#standarderror"><i class="fa fa-check"></i><b>9.7.1</b> Standard covariance structure</a></li>
+<li class="chapter" data-level="9.7.2" data-path="ch-lon.html"><a href="ch-lon.html#alternateerror"><i class="fa fa-check"></i><b>9.7.2</b> Alternative covariance structures</a></li>
+<li class="chapter" data-level="9.7.3" data-path="ch-lon.html"><a href="ch-lon.html#covariance-structure-in-non-longitudinal-multilevel-models"><i class="fa fa-check"></i><b>9.7.3</b> Covariance structure in non-longitudinal multilevel models</a></li>
+<li class="chapter" data-level="9.7.4" data-path="ch-lon.html"><a href="ch-lon.html#final-thoughts-regarding-covariance-structures"><i class="fa fa-check"></i><b>9.7.4</b> Final thoughts regarding covariance structures</a></li>
+<li class="chapter" data-level="9.7.5" data-path="ch-lon.html"><a href="ch-lon.html#optionalcov"><i class="fa fa-check"></i><b>9.7.5</b> Details of covariance structures (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="ch-lon.html"><a href="ch-lon.html#notesr9"><i class="fa fa-check"></i><b>9.8</b> Notes on Using R (Optional)</a></li>
+<li class="chapter" data-level="9.9" data-path="ch-lon.html"><a href="ch-lon.html#exercises-7"><i class="fa fa-check"></i><b>9.9</b> Exercises</a><ul>
+<li class="chapter" data-level="9.9.1" data-path="ch-lon.html"><a href="ch-lon.html#conceptual-exercises-4"><i class="fa fa-check"></i><b>9.9.1</b> Conceptual Exercises</a></li>
+<li class="chapter" data-level="9.9.2" data-path="ch-lon.html"><a href="ch-lon.html#guided-exercise-4"><i class="fa fa-check"></i><b>9.9.2</b> Guided Exercise</a></li>
+<li class="chapter" data-level="9.9.3" data-path="ch-lon.html"><a href="ch-lon.html#open-ended-exercises-3"><i class="fa fa-check"></i><b>9.9.3</b> Open-ended Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ch-3level.html"><a href="ch-3level.html"><i class="fa fa-check"></i><b>10</b> Multilevel Data With More Than Two Levels</a><ul>
+<li class="chapter" data-level="10.1" data-path="ch-3level.html"><a href="ch-3level.html#learning-objectives-8"><i class="fa fa-check"></i><b>10.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2" data-path="ch-3level.html"><a href="ch-3level.html#cs:seeds"><i class="fa fa-check"></i><b>10.2</b> Case Studies: Seed Germination</a></li>
+<li class="chapter" data-level="10.3" data-path="ch-3level.html"><a href="ch-3level.html#explore3"><i class="fa fa-check"></i><b>10.3</b> Initial Exploratory Analyses</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="ch-3level.html"><a href="ch-3level.html#organizedata3"><i class="fa fa-check"></i><b>10.3.1</b> Data Organization</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ch-3level.html"><a href="ch-3level.html#explore3v2"><i class="fa fa-check"></i><b>10.3.2</b> Exploratory Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="ch-3level.html"><a href="ch-3level.html#initialmodels-3level"><i class="fa fa-check"></i><b>10.4</b> Initial models: unconditional means and unconditional growth</a></li>
+<li class="chapter" data-level="10.5" data-path="ch-3level.html"><a href="ch-3level.html#sec:boundary"><i class="fa fa-check"></i><b>10.5</b> Encountering boundary constraints</a></li>
+<li class="chapter" data-level="10.6" data-path="ch-3level.html"><a href="ch-3level.html#threelevel-paraboot"><i class="fa fa-check"></i><b>10.6</b> Parametric bootstrap testing</a></li>
+<li class="chapter" data-level="10.7" data-path="ch-3level.html"><a href="ch-3level.html#sec:explodingvarcomps"><i class="fa fa-check"></i><b>10.7</b> Exploding variance components</a></li>
+<li class="chapter" data-level="10.8" data-path="ch-3level.html"><a href="ch-3level.html#modelsDEF"><i class="fa fa-check"></i><b>10.8</b> Building to a final model</a></li>
+<li class="chapter" data-level="10.9" data-path="ch-3level.html"><a href="ch-3level.html#error-3level"><i class="fa fa-check"></i><b>10.9</b> Covariance structure (Optional)</a><ul>
+<li class="chapter" data-level="10.9.1" data-path="ch-3level.html"><a href="ch-3level.html#optionalerror"><i class="fa fa-check"></i><b>10.9.1</b> Details of covariance structures</a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="ch-3level.html"><a href="ch-3level.html#usingR3"><i class="fa fa-check"></i><b>10.10</b> Notes on Using R (Optional)</a></li>
+<li class="chapter" data-level="10.11" data-path="ch-3level.html"><a href="ch-3level.html#exercises-8"><i class="fa fa-check"></i><b>10.11</b> Exercises</a><ul>
+<li class="chapter" data-level="10.11.1" data-path="ch-3level.html"><a href="ch-3level.html#conceptual-exercises-5"><i class="fa fa-check"></i><b>10.11.1</b> Conceptual Exercises</a></li>
+<li class="chapter" data-level="10.11.2" data-path="ch-3level.html"><a href="ch-3level.html#guided-exercise-5"><i class="fa fa-check"></i><b>10.11.2</b> Guided Exercise</a></li>
+<li class="chapter" data-level="10.11.3" data-path="ch-3level.html"><a href="ch-3level.html#open-ended-exercises-4"><i class="fa fa-check"></i><b>10.11.3</b> Open-ended Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ch-GLMM.html"><a href="ch-GLMM.html"><i class="fa fa-check"></i><b>11</b> Generalized Linear Multilevel Models</a><ul>
+<li class="chapter" data-level="11.1" data-path="ch-GLMM.html"><a href="ch-GLMM.html#objectives"><i class="fa fa-check"></i><b>11.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="11.2" data-path="ch-GLMM.html"><a href="ch-GLMM.html#cs:refs"><i class="fa fa-check"></i><b>11.2</b> Case Study: College Basketball Referees</a></li>
+<li class="chapter" data-level="11.3" data-path="ch-GLMM.html"><a href="ch-GLMM.html#explore-glmm"><i class="fa fa-check"></i><b>11.3</b> Initial Exploratory Analyses</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="ch-GLMM.html"><a href="ch-GLMM.html#data-organization-7"><i class="fa fa-check"></i><b>11.3.1</b> Data organization</a></li>
+<li class="chapter" data-level="11.3.2" data-path="ch-GLMM.html"><a href="ch-GLMM.html#glmm-eda"><i class="fa fa-check"></i><b>11.3.2</b> Exploratory analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="ch-GLMM.html"><a href="ch-GLMM.html#twolevelmodeling-glmm"><i class="fa fa-check"></i><b>11.4</b> Two level Modeling with a Generalized Response</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="ch-GLMM.html"><a href="ch-GLMM.html#multregr-glmm"><i class="fa fa-check"></i><b>11.4.1</b> A multiple generalized linear model approach (correlation not accounted for)</a></li>
+<li class="chapter" data-level="11.4.2" data-path="ch-GLMM.html"><a href="ch-GLMM.html#twostage-glmm"><i class="fa fa-check"></i><b>11.4.2</b> A two-stage modeling approach (provides the basic idea for multilevel modeling)</a></li>
+<li class="chapter" data-level="11.4.3" data-path="ch-GLMM.html"><a href="ch-GLMM.html#unified-glmm"><i class="fa fa-check"></i><b>11.4.3</b> A unified multilevel approach (the framework we’ll use)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="ch-GLMM.html"><a href="ch-GLMM.html#crossedre"><i class="fa fa-check"></i><b>11.5</b> Crossed Random Effects</a></li>
+<li class="chapter" data-level="11.6" data-path="ch-GLMM.html"><a href="ch-GLMM.html#glmm-paraboot"><i class="fa fa-check"></i><b>11.6</b> Model Comparisons Using the Parametric Bootstrap</a></li>
+<li class="chapter" data-level="11.7" data-path="ch-GLMM.html"><a href="ch-GLMM.html#sec:finalmodel-glmm"><i class="fa fa-check"></i><b>11.7</b> A Potential Final Model for Examining Referee Bias</a></li>
+<li class="chapter" data-level="11.8" data-path="ch-GLMM.html"><a href="ch-GLMM.html#estimatedRE"><i class="fa fa-check"></i><b>11.8</b> Estimated Random Effects</a></li>
+<li class="chapter" data-level="11.9" data-path="ch-GLMM.html"><a href="ch-GLMM.html#usingR-glmm"><i class="fa fa-check"></i><b>11.9</b> Notes on Using R (Optional)</a></li>
+<li class="chapter" data-level="11.10" data-path="ch-GLMM.html"><a href="ch-GLMM.html#exercises-9"><i class="fa fa-check"></i><b>11.10</b> Exercises</a></li>
+<li class="chapter" data-level="11.11" data-path="ch-GLMM.html"><a href="ch-GLMM.html#conceptual-exercises-6"><i class="fa fa-check"></i><b>11.11</b> Conceptual Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="ch-GLMM.html"><a href="ch-GLMM.html#guided-exercise-6"><i class="fa fa-check"></i><b>11.11.1</b> Guided Exercise</a></li>
+<li class="chapter" data-level="11.11.2" data-path="ch-GLMM.html"><a href="ch-GLMM.html#open-ended-exercises-5"><i class="fa fa-check"></i><b>11.11.2</b> Open-ended Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Broadening Your Statistical Horizons</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch-corrdata" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Correlated Data</h1>
+<div id="learning-objectives-5" class="section level2">
+<h2><span class="header-section-number">7.1</span> Learning Objectives</h2>
+<p>After finishing this chapter, you should be able to:</p>
+<ul>
+<li>Given a data structure, be able to recognize when there is a potential for correlation.</li>
+<li>Identify a primary sampling unit and corresponding observations for a study.</li>
+<li>Provide reasons why correlated observations may cause problems when modeling.</li>
+<li>Describe overdispersion and why it might occur.</li>
+<li>Understand how correlation in data can be taken into account using random effects models.</li>
+<li>Be able to describe the differences in the kind of inferences that can be made using fixed versus random effects models.</li>
+<li>Use software to fit a model taking correlation into account using:
+<ul>
+<li>overdispersion parameter estimates (quasi-likelihood) or</li>
+<li>random effects.</li>
+</ul></li>
+</ul>
+<p>Introductory statistics courses typically require responses which are approximately normal and independent of one another. We saw from the first chapters in this book that there are models for non-normal responses, so we have already broadened the types of applications we can handle. In this chapter, we relax an additional assumption from introductory statistics, that of independence. Here we introduce methods that allow correlation to be taken into account. When modeling, correlation can be considered for normal and non-normal responses. Taken together, we can handle many more applications than the average introductory student.</p>
+<p>First, we focus on recognizing data structures that may imply correlation. Next, we consider potential problems correlated outcomes may cause and why we need to take correlation into account when modeling. Models which take correlation into account are then described and fit with the help of R.</p>
+</div>
+<div id="recognizing-correlation" class="section level2">
+<h2><span class="header-section-number">7.2</span> Recognizing correlation</h2>
+<p>Correlated data is encountered in nearly every field. In education, student scores from a particular teacher are more similar than scores of other students who have had a different teacher. During a study measuring depression indices weekly over the course of a month, we may find that four measures for the same patient tend to be more similar than depression indices from other patients. In political polling, opinions from members of the same household may be more similar than opinions of members from other randomly selected households. The structure of these data sets suggest inherent patterns of similarities or correlation among outcomes. This kind of correlation specifically concerns correlation of observations <em>within the same teacher or patient or household</em> and is referred to as <strong>intraclass correlation</strong>.</p>
+<p>To simplify our discussion, we borrow terminology from survey methodology. In our examples, teachers, patients, and households can be referred to as <strong>primary sampling units</strong> or <strong>PSUs</strong>.</p>
+<blockquote>
+<p>In sample surveys, primary sampling unit (commonly abbreviated as PSU) arises in samples in which population elements are grouped into aggregates and the aggregates become units in sample selection. The aggregates are, due to their intended usage, called “sampling units.” Primary sampling unit refers to sampling units that are selected in the first (primary) stage of a multi-stage sample ultimately aimed at selecting individual elements.</p>
+<p>— James M. Lepkowski, SAGE (2008)</p>
+</blockquote>
+<p>A PSU is sampled and multiple measurements or observations are made for each PSU; here test scores, depression indices, and political opinions are the measurements, respectively. Other examples appear in the table below. Look for this structure when analyzing data.</p>
+
+<p>Correlated data structures can also involve mixture models. For example, in Section <a href="#cs:drinking"><strong>??</strong></a> we saw the zero-inflated Poisson model, which is a mixture of binary and Poisson variables. Another common mixture is when a population has two subgroups described by normal distributions with potentially different means and standard deviations. We will explore methods for analyzing mixture models too.</p>
+</div>
+<div id="case-study-dams-and-pups-correlated-binary-outcomes" class="section level2">
+<h2><span class="header-section-number">7.3</span> Case Study: Dams and pups, Correlated Binary Outcomes</h2>
+<p>A <strong>tertogen</strong> is a substance or exposure that can result in harm to a developing fetus. An experiment can be conducted to determine whether increasing levels of a potential teratogen results in increasing probability of defects in rat pups. For example, consider an experiment in which dams (pregnant rats) are exposed to one of two dose levels of a potential teratogen. A control group is not exposed. Dams produce litters and the number of pups with a defect is the outcome of interest.</p>
+<div id="sources-of-variability" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Sources of Variability</h3>
+<p>In order to analyze the entire data set, let’s step back and look at the big picture. Statistics is all about analyzing variability, so let’s consider what sources of variability we have in the dams and pups example. There are several reasons why the counts of the number of defective pups differ from dam to dam and it is helpful to explicitly identify what they are in order to determine how the dose levels affect the pups in addition to accommodating correlation.</p>
+<p><strong>Dose Effect</strong> The dams and pups experiment is being carried out to determine whether different dose levels affect the development of defects differently. Of particular interest is determining whether a <strong>dose-response</strong> effect is present. A dose-response effect is evident when dams receiving higher dose levels produce higher proportions of pups with defects. Knowing defect rates at specific dose levels is typically of interest within this experiment and beyond. Publishing the defect rates for each dose level in a paper in a journal, for example, would be of interest to other teratologists. For that reason, we refer to the dose level effects as <strong>fixed effects</strong>.</p>
+<p><strong>Dams (Litter) Effect</strong> In many settings like this, there is a litter effect as well. For example, some dams may exhibit a propensity to produce pups with defects while others rarely produce litters with defective pups. That is, observations on pups within the same litter are likely to be similar or correlated. Unlike the dose effect, teratologists reading experiment results are not interested in the estimated probability of defect for each dam in the study, and we would not report these estimated probabilities in a paper. However, there may be interest in the <em>variability</em> in litter-specific defect probabilities. Often this kind of effect is modeled using the idea that randomly selected dams produce <strong>random effects</strong>. This provides one way in which to model correlated data. We elaborate on this idea throughout the remainder of the text after this next section on overdispersion.</p>
+<p><strong>Pup-to-pup variability</strong> The within litter pup-to-pup differences reflect random, unexplained variation in the model.</p>
+</div>
+<div id="analyzing-a-control-group" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Analyzing a control group</h3>
+<p>We begin by focusing on a control group, ignoring the dose group data. The control group for this study consists of four dams who each produce 15 rat pups in their litter. Each pup is examined for the presence or absence of a defect. (Dams typically produce 8 to 15 pups, so it is unlikely that every dam produces 15 pups. Here we keep it simple with fifteen pups per litter.) Before proceeding any further with the analysis, take note of the data structure. We can think of this as a repeated measures study where dams are PSUs and the elements are the binary outcomes of defect or no defect for each pup. The total number of pups with a defect for a single dam is the response, which is binomial with n=15 and probability of defect <span class="math inline">\(p\)</span>. This structure alerts us to the possibility that pup outcomes may be correlated within litters; thus, we may not have 60 independent observations, and we’ll want to take that into account when modeling.</p>
+<p>Each dam <span class="math inline">\(j\)</span> produces a litter of 15 pups (j=1, <span class="math inline">\(\ldots\)</span>, 4). Individual pup outcomes are either 0 or 1 for “no defect” or “defect” and are denoted as <span class="math inline">\(Y_{jk}\)</span> for the <span class="math inline">\(k^{th}\)</span> pup from the <span class="math inline">\(j^{th}\)</span> dam, <span class="math inline">\(k=1, \ldots, 15\)</span> and <span class="math inline">\(j=1, \ldots, 4\)</span>. The binomial counts, <span class="math inline">\(Y_{j.}=\sum_{k=1}^{15}Y_{jk}\)</span>, the total number of defects for the <span class="math inline">\(j^{th}\)</span> litter, are recorded for each of the four litters. If dams do not differ in their propensity to produce defects, these counts follow a binomial distribution with n=15 and a common probability <span class="math inline">\(p\)</span>. However, if dams’ probabilities of producing a pup with a defect differ from dam-to-dam, the number of pups with defects will not be coming from the same binomial distribution, and the counts are likely to differ more than they would with a common <span class="math inline">\(p\)</span>.</p>
+<p>For illustration, we generate a (hypothetical) control group data set based on the notion that different dams are producing defective pups with different probabilities. Our simulation assumes that <span class="math inline">\(p_1\)</span>, the true probability that dam 1 produces a pup with a defect, is 0.40. She produces 15 pups and has 8 pups with defects. Dam 2 has a true probability of <span class="math inline">\(p_2=0.3\)</span> for the probability of a defective pup, and among her 15 pups only 3 have defects. Dam 3 has a very unhealthy lifestyle and as a result produces pups with defects about 50% of the time. For her litter of 15, she has 7 pups with defects. Only 20% of the pups from the healthiest dam have defects and this litter has 3 pups with defects. We have made the variation in <span class="math inline">\(p\)</span> dramatic for illustration.</p>
+<p>Overall the estimated probability of a defect in the control group is (8+3+7+3)/(4x15) = 0.35. This would be a good estimate if all four dams had the same probability of producing a defective pup. If we proceeded with this naive assumption, recall that the variance of a binomial random variable is <span class="math inline">\(np(1-p)\)</span>, so we would expect the variation in the number of defective pups to be approximately <span class="math inline">\(15*0.35*(1-.35)=3.41\)</span>. However, we calculate the variance for our four litters (<span class="math inline">\(s^2=\sum_{j=1}^{4}(Y_j-\bar{Y})^2/(4-1)\)</span>) and find 6.92. Comparing the model-based variance <span class="math inline">\(np(1-p)\)</span> to the observed variance (<span class="math inline">\(s^2\)</span>), we find a lot more variation in the number of defects among the control group litters than we would expect if in fact they were all coming from the same binomial distribution. If we hadn’t generated the data, making this comparison would lead us to suspect that there is a dam effect and the observations within litters are correlated. In the case of binomial data, this is referred to as <strong>extra-binomial variation</strong> and more generally as <strong>overdispersion</strong>.</p>
+<p>We found that overdispersion can be a clue that observations are correlated within PSUs. Why should we worry about it? If there is correlation within litters, there are not 60 independent pieces of information; that is, the <strong>effective sample size</strong> is less than 60. Standard errors are based on the reciprocal of the sample size, so standard errors for the naive model will be artificially small, resulting in more significant results and narrower confidence intervals than there would be with the larger standard errors based on the effective sample size. Overdispersion suggests that our naive binomial model is incorrect and may well result in significant lack-of-fit. Luckily there are ways in which we can modify the naive model to improve this situation. Had we been attentive to the data structure, we would not be surprised to find overdispersion. How can we take this correlation into account?</p>
+<p>The model-based variance of the counts for the four litters is artificially small (3.41 instead of 6.92). Using a model-based variance to calculate standard errors for Wald tests and confidence intervals will lead to too many significant results or confidence intervals which are too narrow. One way to correct for overdispersion is to inflate the model-based variance by using a factor (an estimated dispersion parameter often denoted <span class="math inline">\(\hat{\phi}\)</span>) so the model uses <span class="math inline">\(\phi np(1-p)\)</span> as the variance instead of <span class="math inline">\(np(1-p)\)</span>, where <span class="math inline">\(\phi &gt;\)</span> 1. We will demonstrate this using software with an expanded data set in a subsequent section.</p>
+</div>
+</div>
+<div id="under-construction" class="section level2">
+<h2><span class="header-section-number">7.4</span> Under Construction…</h2>
+<p>The remainder of the chapter is currently being rewritten. It will eventually include:</p>
+<ul>
+<li>a simulation involving dams and pups to illustrate the effects of failing to account for correlated data</li>
+<li>a case study involving real data from a tree growth experiment</li>
+<li>a preview of multilevel models and random effects</li>
+<li>a set of exercises</li>
+</ul>
+<p>In the meantime, here is a set of questions and associated R script that addresses the first bullet point above:</p>
+<div id="correlated-data-simulation" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Correlated Data Simulation</h3>
+<p><strong>Dams and Pups</strong>. 24 dams (mother rats) are randomized to four groups; 3 groups of 6 dams each are administered a potential teratogen (an agent that can disturb the development of an embryo or fetus) in high, medium, or low doses, and the fourth group serves as the control. Each of the 24 dams produces 10 rat pups, and each pup is examined for the presence of an anomaly or deformities. We will be simulating data under various assumptions and analyzing the results. Relevant R code can be found below the list of questions, along with a template to summarize key results.</p>
+<ol style="list-style-type: decimal">
+<li><p>Do we have <span class="math inline">\(24*10=240\)</span> independent pieces of data?</p></li>
+<li><p>The number of deformed pups will differ by dam. What may be reasons behind these differences?</p></li>
+<li><p>We will use the Beta distribution to model probabilities of deformed pups for each dam. How do the possible values depend on <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? How might you decide on values for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> if you have run a preliminary experiment and gathered data on the number of dams with deformed pups?</p></li>
+<li><p>We will simulate counts of deformed pups for each dam under various scenarios described in the <code>R</code> script. First, we will consider Scenario 1, where the probability that an individual dam has a deformed pup does not depend on dose.</p></li>
+</ol>
+<ul>
+<li>How do differences between Scenarios 1a and 1b appear in the simulated count data (and simulated probabilities)?</li>
+<li>Describe how the quasibinomial analysis of Scenario 1b differs from the binomial analysis of the same simulated data.</li>
+<li>Why are differences between quasibinomial and binomial analyses of Scenario 1a less noticeable?</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Next, we will consider Scenario 2, where the probability that an individual dam has a deformed pup does depend on dose.</li>
+</ol>
+<ul>
+<li>How do differences between Scenarios 2a and 2b appear in the simulated count data (and simulated probabilities)?</li>
+<li>Describe how the quasibinomial analysis of Scenario 2b differs from the binomial analysis of the same simulated data.</li>
+<li>Why are differences between quasibinomial and binomial analyses of Scenario 2a less noticeable?</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li><p>For the logistic regression model “lreg1”, we created a data set with 1 observation per pup, using the responses generated under Scenario 2b. Describe how this logistic regression model compares with your binomial and quasibinomial regression models of this data in (5).</p></li>
+<li><p>In model1, the data set from (6) is analyzed using multilevel modeling. We will talk much more about this later, but a sketch of this multilevel model (with a random effect for dam) is given below. What conclusions do you seem to be able to draw from the multilevel model, and how do those conclusions compare to conclusions from binomial regression modeling?</p></li>
+</ol>
+<ul>
+<li>Level 1:<br />
+<span class="math display">\[ log(\frac{p_{ij}}{1-p_{ij}})=a_i \]</span> where <span class="math inline">\(i\)</span> = dam and <span class="math inline">\(j\)</span> = pup</li>
+<li>Level 2:<br />
+<span class="math display">\[ a_i=\alpha_0+\alpha_1\textrm{dose}_i+u_i \]</span> where <span class="math inline">\(u_i \sim N(0,\sigma_u^2)\)</span></li>
+<li>Composite:<br />
+<span class="math display">\[ log(\frac{p_{ij}}{1-p_{ij}})=\alpha_0+\alpha_1\textrm{dose}_i+u_i \]</span></li>
+</ul>
+<div class="figure">
+<img src="data/DamTemplate.PNG" alt="Template for organizing simulation results" />
+<p class="caption">Template for organizing simulation results</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># CorrData DamsPups.R</span>
+
+## Explore beta distribution for modeling probabilities of deformed pups <span class="al">###</span>
+
+<span class="co"># Beta random variables take on values from 0 to 1.</span>
+p=<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">length=</span><span class="dv">1000</span>)
+<span class="co"># To plot a beta density use dbeta.  Here I selected a=5, b=1:</span>
+density=<span class="kw">dbeta</span>(p,<span class="dv">5</span>,<span class="dv">1</span>)
+<span class="kw">plot</span>(p,density,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)
+
+<span class="co"># Try some other values for a&gt;0 and b&gt;0</span>
+<span class="co">#   to see other forms for the Beta distribution.</span>
+
+<span class="co"># Try to answer the following questions:</span>
+<span class="co">#   What values do Beta random variables take on?</span>
+<span class="co">#   What do these values represent for the dams and pups simulation?</span>
+<span class="co">#   Do the possible values depend on a or b?</span>
+<span class="co">#   What is a feature of the Beta density when a=b?</span>
+<span class="co">#   What happens to the density when a is not equal to b?</span>
+<span class="co">#   How does the magnitude of a or b affect the density?</span>
+<span class="co">#   How does the difference between a and b affect the density?</span>
+<span class="co">#   If you wanted to simulate dams with mostly low probabilities of </span>
+<span class="co">#     defects and a few with very high probabilities, how would you do it?</span>
+<span class="co">#   If you wanted to simulate dams with mostly high probabilities of </span>
+<span class="co">#     defects and a few with very low probabilities, how would you do it?</span>
+<span class="co">#   If you wanted to simulate a population of dams where half of the  </span>
+<span class="co">#     probabilities of defects are very high and half are very low, </span>
+<span class="co">#     how would you do it?</span>
+<span class="co">#   How might you decide on values for a and b if you have run a </span>
+<span class="co">#     preliminary experiment and gathered data on the number of dams </span>
+<span class="co">#     with deformed pups?</span>
+
+<span class="co"># model for generating pis</span>
+p=<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">length=</span><span class="dv">1000</span>)
+density=<span class="kw">dbeta</span>(p,.<span class="dv">5</span>,.<span class="dv">5</span>)
+<span class="kw">plot</span>(p,density,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)  
+
+<span class="co"># or just use:</span>
+<span class="kw">hist</span>(<span class="kw">rbeta</span>(<span class="dv">10000</span>,.<span class="dv">5</span>,.<span class="dv">5</span>))
+
+
+### Beginning of simulation <span class="al">###</span>
+
+## Scenario 1: log (pi / 1 - pi) = 0
+##    a) pi fixed at 0.5 for all 24 dams
+##    b) pi randomly chosen from Beta (0.5, 0.5) which has mean 0.5
+
+<span class="co"># Generate pi for each of 24 dams in sample under Scenarios 1a and 1b</span>
+<span class="kw">set.seed</span>(<span class="dv">530</span>)
+pi_1a &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="fl">0.5</span>, <span class="dv">24</span>)
+pi_1b &lt;-<span class="st"> </span><span class="kw">rbeta</span>(<span class="dv">24</span>,.<span class="dv">5</span>,.<span class="dv">5</span>)   
+
+<span class="co"># generate deformed pups for each of 24 dams under Scenario 1a</span>
+count_1a &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">24</span>, <span class="dv">10</span>, pi_1a)
+<span class="co"># generate deformed pups for each of 24 dams under Scenario 1b</span>
+count_1b &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">24</span>, <span class="dv">10</span>, pi_1b)  
+scenario_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(pi_1a, count_1a, pi_1b, count_1b)
+
+<span class="co"># Compare histograms of counts under both scenarios</span>
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(gridExtra) 
+hist_1a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">1</span>, <span class="kw">aes</span>(<span class="dt">x =</span> count_1a)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) 
+hist_1b &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">1</span>, <span class="kw">aes</span>(<span class="dt">x =</span> count_1b)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) 
+<span class="kw">grid.arrange</span>(hist_1a, hist_1b, <span class="dt">ncol=</span><span class="dv">1</span>)
+
+<span class="co"># compare mean and variance for two scenarios</span>
+<span class="kw">library</span>(dplyr)
+scenario_<span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_1a =</span> <span class="kw">mean</span>(count_1a), <span class="dt">sd_1a =</span> <span class="kw">sd</span>(count_1a),
+            <span class="dt">mean_1b =</span> <span class="kw">mean</span>(count_1b), <span class="dt">sd_1b =</span> <span class="kw">sd</span>(count_1b) )
+
+
+<span class="co"># Model Scenario 1a data without overdispersion</span>
+scenario_<span class="dv">1</span> &lt;-<span class="st"> </span>scenario_<span class="dv">1</span> <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">phat_1a =</span> count_1a <span class="op">/</span><span class="st"> </span><span class="dv">10</span>, <span class="dt">phat_1b =</span> count_1b <span class="op">/</span><span class="st"> </span><span class="dv">10</span>)
+fit_1a_binom &lt;-<span class="st"> </span><span class="kw">glm</span>(phat_1a <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">family=</span>binomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), <span class="dt">data =</span> scenario_<span class="dv">1</span>)
+<span class="kw">summary</span>(fit_1a_binom) 
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1a_binom))                                 <span class="co"># estimated odds of deformity</span>
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1a_binom)) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="kw">coef</span>(fit_1a_binom)))   <span class="co"># estimated prob of deformity</span>
+
+mlcoef =<span class="st"> </span><span class="kw">summary</span>(fit_1a_binom)<span class="op">$</span>coefficients[,<span class="dv">1</span>]
+mlse =<span class="st"> </span><span class="kw">summary</span>(fit_1a_binom)<span class="op">$</span>coefficients[,<span class="dv">2</span>]
+lb =<span class="st"> </span>mlcoef <span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">975</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="op">*</span>mlse
+ub =<span class="st"> </span>mlcoef <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">975</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="op">*</span>mlse
+<span class="kw">cbind</span>(<span class="kw">exp</span>(lb),<span class="kw">exp</span>(ub))                               <span class="co"># CI for odds - normal-based</span>
+<span class="kw">cbind</span>( <span class="kw">exp</span>(lb)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(lb)) , <span class="kw">exp</span>(ub)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(ub)) )   <span class="co"># CI for prob - normal-based</span>
+
+ci.prof.noadj=<span class="kw">exp</span>(<span class="kw">confint</span>(fit_1a_binom))
+ci.prof.noadj                        <span class="co"># CI for odds - profile likelihood</span>
+ci.prof.noadj <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span>ci.prof.noadj)    <span class="co"># CI for prob - profile likelihood</span>
+
+gof &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(fit_1a_binom<span class="op">$</span>deviance, fit_1a_binom<span class="op">$</span>df.residual)
+gof                                  <span class="co"># test for goodness of fit</span>
+
+
+<span class="co"># Model Scenario 1a data with overdispersion</span>
+fit_1a_quasi =<span class="st"> </span><span class="kw">glm</span>(phat_1a <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">family=</span>quasibinomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), <span class="dt">data=</span>scenario_<span class="dv">1</span>)
+<span class="kw">summary</span>(fit_1a_quasi) 
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1a_quasi))                                 <span class="co"># estimated odds of deformity</span>
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1a_quasi)) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="kw">coef</span>(fit_1a_quasi)))   <span class="co"># estimated prob of deformity</span>
+
+phihat =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">residuals</span>(fit_1a_quasi, <span class="dt">type=</span><span class="st">&quot;pearson&quot;</span>)<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span>fit_1a_quasi<span class="op">$</span>df.residual
+phihat                                                  <span class="co"># overdispersion parameter</span>
+
+qlcoef =<span class="st"> </span><span class="kw">summary</span>(fit_1a_quasi)<span class="op">$</span>coefficients[,<span class="dv">1</span>]
+qlse =<span class="st"> </span><span class="kw">summary</span>(fit_1a_quasi)<span class="op">$</span>coefficients[,<span class="dv">2</span>]
+lb =<span class="st"> </span>qlcoef <span class="op">-</span><span class="st"> </span><span class="kw">qt</span>(.<span class="dv">975</span>,fit_1a_quasi<span class="op">$</span>df.residual)<span class="op">*</span>qlse
+ub =<span class="st"> </span>qlcoef <span class="op">+</span><span class="st"> </span><span class="kw">qt</span>(.<span class="dv">975</span>,fit_1a_quasi<span class="op">$</span>df.residual)<span class="op">*</span>qlse
+<span class="kw">cbind</span>(<span class="kw">exp</span>(lb),<span class="kw">exp</span>(ub))                               <span class="co"># CI for odds - t-based</span>
+<span class="kw">cbind</span>( <span class="kw">exp</span>(lb)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(lb)) , <span class="kw">exp</span>(ub)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(ub)) )   <span class="co"># CI for prob - t-based</span>
+
+ci.prof.adj=<span class="kw">exp</span>(<span class="kw">confint</span>(fit_1a_quasi))
+ci.prof.adj                       <span class="co"># CI for odds - profile likelihood</span>
+ci.prof.adj <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span>ci.prof.adj)     <span class="co"># CI for prob - profile likelihood</span>
+
+
+<span class="co"># Model Scenario 1b data without overdispersion</span>
+fit_1b_binom &lt;-<span class="st"> </span><span class="kw">glm</span>(phat_1b <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">family=</span>binomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), <span class="dt">data =</span> scenario_<span class="dv">1</span>)
+<span class="kw">summary</span>(fit_1b_binom) 
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1b_binom))                                 <span class="co"># estimated odds of deformity</span>
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1b_binom)) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="kw">coef</span>(fit_1b_binom)))   <span class="co"># estimated prob of deformity</span>
+
+mlcoef =<span class="st"> </span><span class="kw">summary</span>(fit_1b_binom)<span class="op">$</span>coefficients[,<span class="dv">1</span>]
+mlse =<span class="st"> </span><span class="kw">summary</span>(fit_1b_binom)<span class="op">$</span>coefficients[,<span class="dv">2</span>]
+lb =<span class="st"> </span>mlcoef <span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">975</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="op">*</span>mlse
+ub =<span class="st"> </span>mlcoef <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">975</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="op">*</span>mlse
+<span class="kw">cbind</span>(<span class="kw">exp</span>(lb),<span class="kw">exp</span>(ub))                               <span class="co"># CI for odds - normal-based</span>
+<span class="kw">cbind</span>( <span class="kw">exp</span>(lb)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(lb)) , <span class="kw">exp</span>(ub)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(ub)) )   <span class="co"># CI for prob - normal-based</span>
+
+ci.prof.noadj=<span class="kw">exp</span>(<span class="kw">confint</span>(fit_1b_binom))
+ci.prof.noadj                        <span class="co"># CI for odds - profile likelihood</span>
+ci.prof.noadj <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span>ci.prof.noadj)    <span class="co"># CI for prob - profile likelihood</span>
+
+gof &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(fit_1b_binom<span class="op">$</span>deviance, fit_1b_binom<span class="op">$</span>df.residual)
+gof                                  <span class="co"># test for goodness of fit</span>
+
+
+<span class="co"># Model Scenario 1b data with overdispersion</span>
+fit_1b_quasi =<span class="st"> </span><span class="kw">glm</span>(phat_1b <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">family=</span>quasibinomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), <span class="dt">data=</span>scenario_<span class="dv">1</span>)
+<span class="kw">summary</span>(fit_1b_quasi) 
+<span class="kw">summary</span>(fit_1b_quasi) 
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1b_quasi))                                 <span class="co"># estimated odds of deformity</span>
+<span class="kw">exp</span>(<span class="kw">coef</span>(fit_1b_quasi)) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="kw">coef</span>(fit_1b_quasi)))   <span class="co"># estimated prob of deformity</span>
+
+phihat =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">residuals</span>(fit_1b_quasi, <span class="dt">type=</span><span class="st">&quot;pearson&quot;</span>)<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span>fit_1b_quasi<span class="op">$</span>df.residual
+phihat                                                  <span class="co"># overdispersion parameter</span>
+
+qlcoef =<span class="st"> </span><span class="kw">summary</span>(fit_1b_quasi)<span class="op">$</span>coefficients[,<span class="dv">1</span>]
+qlse =<span class="st"> </span><span class="kw">summary</span>(fit_1b_quasi)<span class="op">$</span>coefficients[,<span class="dv">2</span>]
+lb =<span class="st"> </span>qlcoef <span class="op">-</span><span class="st"> </span><span class="kw">qt</span>(.<span class="dv">975</span>,fit_1b_quasi<span class="op">$</span>df.residual)<span class="op">*</span>qlse
+ub =<span class="st"> </span>qlcoef <span class="op">+</span><span class="st"> </span><span class="kw">qt</span>(.<span class="dv">975</span>,fit_1b_quasi<span class="op">$</span>df.residual)<span class="op">*</span>qlse
+<span class="kw">cbind</span>(<span class="kw">exp</span>(lb),<span class="kw">exp</span>(ub))                               <span class="co"># CI for odds - t-based</span>
+<span class="kw">cbind</span>( <span class="kw">exp</span>(lb)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(lb)) , <span class="kw">exp</span>(ub)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(ub)) )   <span class="co"># CI for prob - t-based</span>
+
+ci.prof.adj=<span class="kw">exp</span>(<span class="kw">confint</span>(fit_1b_quasi))
+ci.prof.adj                       <span class="co"># CI for odds - profile likelihood</span>
+ci.prof.adj <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span>ci.prof.adj)     <span class="co"># CI for prob - profile likelihood</span>
+
+
+## Scenario 2: log (pi / 1 - pi) = -2 + 4 * dose
+##   Thus pi=exp(-2+4*dose)/(1+exp(-2+4*dose))
+##   Log odds linearly related to 4 doses: 0, 1/3, 2/3, 1
+##    a) pi fixed at .119, .339, .661, .881 for groups of 6 dams
+##    b) pi randomly chosen from Beta (2*pi / (1-pi), 2) which has mean pi
+
+<span class="co"># Generate pi for each of 24 dams in sample under Scenarios 1a and 1b</span>
+dose &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">6</span>),<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,<span class="dv">6</span>),<span class="kw">rep</span>(<span class="dv">2</span><span class="op">/</span><span class="dv">3</span>,<span class="dv">6</span>),<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>))
+pi_2a &lt;-<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span><span class="dv">2</span><span class="op">+</span><span class="dv">4</span><span class="op">*</span>dose) <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="dv">2</span><span class="op">+</span><span class="dv">4</span><span class="op">*</span>dose))
+b &lt;-<span class="st"> </span><span class="dv">2</span>
+a &lt;-<span class="st"> </span>b<span class="op">*</span>pi_2a <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>pi_2a)
+pi_2b &lt;-<span class="st"> </span><span class="kw">rbeta</span>(<span class="dv">24</span>, a, b)
+
+<span class="co"># generate deformed pups for each of 24 dams under Scenario 2a</span>
+count_2a &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">24</span>, <span class="dv">10</span>, pi_2a)
+<span class="co"># generate deformed pups for each of 24 dams under Scenario 2b</span>
+count_2b &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">24</span>, <span class="dv">10</span>, pi_2b)  
+scenario_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(pi_2a, count_2a, pi_2b, count_2b)
+
+<span class="co"># Plot pis used in Scenario 2b</span>
+hist1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,], <span class="kw">aes</span>(<span class="dt">x =</span> pi_2b)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))
+hist2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>,], <span class="kw">aes</span>(<span class="dt">x =</span> pi_2b)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))
+hist3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>[<span class="dv">13</span><span class="op">:</span><span class="dv">18</span>,], <span class="kw">aes</span>(<span class="dt">x =</span> pi_2b)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))
+hist4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>[<span class="dv">19</span><span class="op">:</span><span class="dv">24</span>,], <span class="kw">aes</span>(<span class="dt">x =</span> pi_2b)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))
+<span class="kw">grid.arrange</span>(hist1, hist2, hist3, hist4, <span class="dt">ncol=</span><span class="dv">1</span>)
+
+<span class="co"># Compare histograms of counts under both scenarios</span>
+hist_2a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>, <span class="kw">aes</span>(<span class="dt">x =</span> count_2a)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) 
+hist_2b &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>, <span class="kw">aes</span>(<span class="dt">x =</span> count_2b)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) 
+<span class="kw">grid.arrange</span>(hist_2a, hist_2b, <span class="dt">ncol=</span><span class="dv">1</span>)
+
+<span class="co"># compare mean and variance for two scenarios</span>
+scenario_<span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(pi_2a) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_2a_pi =</span> <span class="kw">mean</span>(pi_2a), <span class="dt">sd_2a_pi =</span> <span class="kw">sd</span>(pi_2a),
+            <span class="dt">mean_2b_pi =</span> <span class="kw">mean</span>(pi_2b), <span class="dt">sd_2b_pi =</span> <span class="kw">sd</span>(pi_2b),
+            <span class="dt">mean_2a_cnt =</span> <span class="kw">mean</span>(count_2a), <span class="dt">sd_2a_cnt =</span> <span class="kw">sd</span>(count_2a),
+            <span class="dt">mean_2b_cnt =</span> <span class="kw">mean</span>(count_2b), <span class="dt">sd_2b_cnt =</span> <span class="kw">sd</span>(count_2b) ) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">as.data.frame</span>()
+
+<span class="co"># elogit plots for model.binom and over.binom</span>
+scenario_<span class="dv">2</span> &lt;-<span class="st"> </span>scenario_<span class="dv">2</span> <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">dose =</span> dose,
+         <span class="dt">phat_2a =</span> count_2a <span class="op">/</span><span class="st"> </span><span class="dv">10</span>, <span class="dt">phat_2b =</span> count_2b <span class="op">/</span><span class="st"> </span><span class="dv">10</span>,
+         <span class="dt">logit_2a =</span> <span class="kw">log</span> ((count_2a <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>) <span class="op">/</span><span class="st"> </span>(<span class="dv">10</span> <span class="op">-</span><span class="st"> </span>count_2a <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>)),
+         <span class="dt">logit_2b =</span> <span class="kw">log</span> ((count_2b <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>) <span class="op">/</span><span class="st"> </span>(<span class="dv">10</span> <span class="op">-</span><span class="st"> </span>count_2b <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>)) )
+elog1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>, <span class="kw">aes</span>(<span class="dt">x =</span> dose, <span class="dt">y =</span> logit_2a)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Scenario 2a&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Logit of proportion of defective pups&quot;</span>)
+elog2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> scenario_<span class="dv">2</span>, <span class="kw">aes</span>(<span class="dt">x =</span> dose, <span class="dt">y =</span> logit_2b)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Scenario 2b&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Logit of proportion of defective pups&quot;</span>)
+<span class="kw">grid.arrange</span>(elog1, elog2, <span class="dt">ncol=</span><span class="dv">2</span>)
+
+
+<span class="co"># Model Scenario 2a data without overdispersion</span>
+fit_2a_binom =<span class="st"> </span><span class="kw">glm</span>(phat_2a <span class="op">~</span><span class="st"> </span>dose, <span class="dt">family=</span>binomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), <span class="dt">data=</span>scenario_<span class="dv">2</span>)
+<span class="kw">summary</span>(fit_2a_binom) 
+<span class="kw">confint</span>(fit_2a_binom)   
+gof &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(fit_2a_binom<span class="op">$</span>deviance, fit_2a_binom<span class="op">$</span>df.residual)
+gof 
+
+<span class="co"># Model Scenario 2a data with overdispersion</span>
+fit_2a_quasi =<span class="st"> </span><span class="kw">glm</span>(phat_2a <span class="op">~</span><span class="st"> </span>dose, <span class="dt">family=</span>quasibinomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), 
+                   <span class="dt">data=</span>scenario_<span class="dv">2</span>)
+<span class="kw">summary</span>(fit_2a_quasi) 
+<span class="kw">confint</span>(fit_2a_quasi)  
+
+<span class="co"># Model Scenario 2b data without overdispersion</span>
+fit_2b_binom =<span class="st"> </span><span class="kw">glm</span>(phat_2b <span class="op">~</span><span class="st"> </span>dose, <span class="dt">family=</span>binomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), <span class="dt">data=</span>scenario_<span class="dv">2</span>)
+<span class="kw">summary</span>(fit_2b_binom) 
+<span class="kw">confint</span>(fit_2b_binom)   
+gof &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(fit_2b_binom<span class="op">$</span>deviance, fit_2b_binom<span class="op">$</span>df.residual)
+gof 
+
+<span class="co"># Model Scenario 2b data with overdispersion</span>
+fit_2b_quasi =<span class="st"> </span><span class="kw">glm</span>(phat_2b <span class="op">~</span><span class="st"> </span>dose, <span class="dt">family=</span>quasibinomial, <span class="dt">weight=</span><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>), 
+                   <span class="dt">data=</span>scenario_<span class="dv">2</span>)
+<span class="kw">summary</span>(fit_2b_quasi) 
+<span class="kw">confint</span>(fit_2b_quasi)  
+
+
+<span class="co"># Try running as logistic regression</span>
+<span class="co">#   First need to create data set with 1 obs per pup</span>
+n=<span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">24</span>)
+dam_id=<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>
+dose1 =<span class="st"> </span><span class="kw">rep</span>(dose[<span class="dv">1</span>],n[<span class="dv">1</span>])
+id1 =<span class="st"> </span><span class="kw">rep</span>(dam_id[<span class="dv">1</span>],n[<span class="dv">1</span>])
+def1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>,count_2b[<span class="dv">1</span>]),<span class="kw">rep</span>(<span class="dv">0</span>,n[<span class="dv">1</span>]<span class="op">-</span>count_2b[<span class="dv">1</span>]))
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="dv">24</span>)  {
+  dose1 =<span class="st"> </span><span class="kw">c</span>(dose1,<span class="kw">rep</span>(dose[i],n[i]))
+  id1 =<span class="st"> </span><span class="kw">c</span>(id1,<span class="kw">rep</span>(dam_id[i],n[i]))
+  def1 =<span class="st"> </span><span class="kw">c</span>(def1,<span class="kw">rep</span>(<span class="dv">1</span>,count_2b[i]),<span class="kw">rep</span>(<span class="dv">0</span>,n[i]<span class="op">-</span>count_2b[i])) }
+<span class="kw">cdplot</span>(dose1,<span class="kw">as.factor</span>(def1))             <span class="co"># conditional density plot</span>
+
+lreg1 =<span class="st"> </span><span class="kw">glm</span>(def1 <span class="op">~</span><span class="st"> </span>dose1, <span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>) )
+<span class="kw">summary</span>(lreg1)
+<span class="kw">confint</span>(lreg1)
+
+gof =<span class="st"> </span><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(lreg1<span class="op">$</span>deviance, lreg1<span class="op">$</span>df.residual)
+gof 
+
+
+<span class="co"># Try running as a multilevel model</span>
+<span class="kw">library</span>(lme4)
+model1 =<span class="st"> </span><span class="kw">glmer</span>(def1 <span class="op">~</span><span class="st"> </span>dose1 <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>id1), <span class="dt">family=</span>binomial)
+<span class="kw">summary</span>(model1)
+
+model0 =<span class="st"> </span><span class="kw">glmer</span>(def1 <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>id1), <span class="dt">family=</span>binomial)
+<span class="kw">summary</span>(model0)</code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-logreg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-multilevelintro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+--- 
+title: "Broadening Your Statistical Horizons"
+subtitle: "Generalized Linear Models and Multilevel Models"
+author: "J. Legler and P. Roback"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+link-citations: yes
+description: "Test."
+---
+# Preface {-}
+
+This is the very first part of the book.
+```{r, include=FALSE, eval=FALSE}
+# Automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 
+  'nycflights13', 'devtools', 'ggplot2', 'webshot', 
+  'dygraphs', 'tufte', 'okcupiddata', 'mosaic',
+   'dplyr', 'ggplot2movies', 'fivethirtyeight', 'tibble', 'readr'
+), 'bib/packages.bib')
+
+#do library AER
+```
