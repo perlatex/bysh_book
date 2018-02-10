@@ -33,40 +33,7 @@ To simplify our discussion, we borrow terminology from survey methodology. In ou
 >
 > --- James M. Lepkowski, SAGE (2008)
 
-A PSU is sampled and multiple measurements or observations are made for each PSU; here test scores, depression indices, and political opinions are the measurements, respectively. Other examples appear in the table below. Look for this structure when analyzing data.
-
-\begin{table}[htdp]
-\caption{Examples of data structures for studies with potential within PSU correlation. Elements of the PSUs with measurements to be made and type of measurement.}
-\label{corrExamples.tab}
-\begin{center}
-\begin{tabular}{|l|p{3cm}|c|p{2cm}|p{2cm}|p{2cm}|}
-\hline
-Types of Data &Study & PSU & Elements& Response & Type of Response Variable*\\
-\hline
-\hline
-Clustered Data & Four dams (pregnant rats) produce pups who have a defect or no defect. & Dam & Pups & No defect (0) or defect (1)& Binary\\
-\hline
-Repeated Measures &
-Ten newborns' height is measured four times each.&
-Newborn & Measurement Attempts & Height measurement & Normal\\
-\hline
-Longitudinal Data&
-Twenty musicians record their level of anxiety for each of their performances throughout the season. &
-Musician & Performances & Anxiety scores & Normal\\
-\hline
-\hline
-Survey Data &
-A random survey of county board members for 88 counties solicits their opinion on a tax referendum. &
-County & County board members & Opinions & Ordinal\\
-\hline
-Spatial Data &
-Particulate  measurements are made  at 25 locations within teen counties. &
-County & Measurement location &Particulate measurements & Poisson \\
-\hline
-\end{tabular}
-\end{center}
-\label{CorrDataExamples}
-\end{table}
+A PSU is sampled and multiple measurements or observations are made for each PSU; here test scores, depression indices, and political opinions are the measurements, respectively. Look for this structure when analyzing data.
 
 Correlated data structures can also involve mixture models.  For example, in Section \@ref(cs:drinking) we saw the zero-inflated Poisson model, which is a mixture of binary and Poisson variables.  Another common mixture is when a population has two subgroups described by normal distributions with potentially different means and standard deviations.  We will explore methods for analyzing mixture models too.
 

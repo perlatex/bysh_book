@@ -980,7 +980,7 @@ These results differ from the quasipoisson model.  Several effects are now stati
 
 In summary, we explored the possibility of regional differences in the violent crime rate controlling for the type of institution (or vice versa). Our initial efforts seemed to suggest that there are indeed regional differences and the pattern of those differences depend upon the type of institution. However, this model exhibited significant lack-of-fit which remained after the removal of an extreme observation. In the absence of additional covariates, we accounted for the lack-of-fit by using a quasilikelihood approach and a negative binomial regression, which provided slightly different conclusions.  We may want to look for additional covariates and or more data.
 
-##Case Study: Weekend drinking {cs:drinking}
+##Case Study: Weekend drinking {#cs:drinking}
 
 Sometimes when analyzing Poisson data, you may see many more zeros in your data set than you would expect for a Poisson random variable. For example, an informal survey of students in an introductory statistics course included the question, "How many alcoholic drinks did you consume last weekend?"  This survey was conducted on a dry campus where no alcohol is officially allowed, even among students of drinking age, so we expect that some portion of the respondents never drink. The non-drinkers would thus always report zero drinks. However, there will also be students who are drinkers reporting zero drinks because they just did not happen to drink during the past weekend. Our zeros, then, are a mixture of responses from non-drinkers and drinkers who abstained. Ideally, we'd like to sort out the non-drinkers and drinkers when performing our analysis.
 
