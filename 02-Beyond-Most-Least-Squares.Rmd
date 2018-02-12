@@ -454,7 +454,7 @@ Families with different compositions will contribute different factors to the li
 Now we create the entire likelihood for our data under the Sex Unconditional Model.
 \begin{eqnarray*}
 Lik(p_B) &=& p_B^{930}p_G^{951}p_{BB}^{582} \cdots p_{BBG}^{177} \cdots P_{GGG}^{159} \\
-&= & p_B^{930+2*582+666+666+\cdots+125}(1-p_B)^{951+666+666+2*530+\cdots+3*159} \\
+&= & p_B^{930+2*582+666+666+\cdots+182}(1-p_B)^{951+666+666+2*530+\cdots+3*159} \\
 Lik(p_B) & =&  p_B^{5416}(1-p_B)^{5256} \\
 (\#eq:likSexUn)
 \end{eqnarray*}
