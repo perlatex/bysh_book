@@ -561,10 +561,10 @@ The maximum of the log-likelihood for the larger model can be found by replacing
 logLik(0.5033, 0.4928, 0.5360) &= & 3161*log(.5033)+3119*log(1-.5033)+\\
 & & 1131*log(.4928)+1164*log(1-.4928)+\\
 & & 1124*log(.5360)+973*log(1-.5360)\\
-&=& -7374.236
+&=& -7391.448
 \end{eqnarray*}
     
-Take a look at the log-likelihoods---the maximum log-likelihood for the larger model is indeed larger (less negative). The maximum log-likelihood for the larger model is guaranteed to be at least as large as the maximum log-likelihood for the reduced model, so we'll be interested in whether this observed difference in maximum log-likelihoods, -7374.236 -(-7396.067) = 21.831, is significant. 
+Take a look at the log-likelihoods---the maximum log-likelihood for the larger model is indeed larger (less negative). The maximum log-likelihood for the larger model is guaranteed to be at least as large as the maximum log-likelihood for the reduced model, so we'll be interested in whether this observed difference in maximum log-likelihoods, -7391.448 -(-7396.067) = 4.619, is significant. 
     
 A result from statistical theory states that, when the reduced model is the true model, twice the difference of the maximum log-likelihoods follows a $\chi^2$ distribution with the degrees of freedom equal to the difference in the number of parameters between the two models. A difference of the maximum log-likelihoods can also be looked at as the log of the ratio of the likelihoods and for that reason the test is referred  to as the __Likelihood Ratio Test (LRT)__.
     
@@ -573,7 +573,7 @@ Our test statistic is
 \[ LRT = 2[maxlogLik(\textrm{larger model}) - maxlogLik(\textrm{reduced model})]\]
 \[LRT = 2log\left(\frac{maxLik(\textrm{larger  model})}{maxLik(\textrm{reduced model})} \right)\]
     
-Intuitively, when the likelihood for the larger model is much greater than it is for the reduced model, we have evidence that the larger model is more closely aligned with the observed data. This isn't really a fair comparison on the face of it.  We need to account for the fact that more parameters were estimated and used for the larger model. That is accomplished by taking into account the degrees of freedom for the $\chi^2$ distribution. The expected value of the $\chi^2$ distribution is its degrees of freedom.  Thus when the difference in the number of parameters is large, the test statistic will need to be much larger to convince us that it is not simply chance variation with two identical models. Here, under the reduced model we'd expect our test statistic to be 2, when in fact it is over 43.  The evidence favors our larger model. More precisely, the test statistic is $(-2)*(-7374.238+7396.073) = 43.67   (p<0.0001)$.
+Intuitively, when the likelihood for the larger model is much greater than it is for the reduced model, we have evidence that the larger model is more closely aligned with the observed data. This isn't really a fair comparison on the face of it.  We need to account for the fact that more parameters were estimated and used for the larger model. That is accomplished by taking into account the degrees of freedom for the $\chi^2$ distribution. The expected value of the $\chi^2$ distribution is its degrees of freedom.  Thus when the difference in the number of parameters is large, the test statistic will need to be much larger to convince us that it is not simply chance variation with two identical models. Here, under the reduced model we'd expect our test statistic to be 2, when in fact it is over 43.  The evidence favors our larger model. More precisely, the test statistic is $(-2)*(-7391.448+7396.073) = 4.619   (p<0.001)$.
     
 We have convincing evidence that the Sex Conditional Model provides a significant improvement over the Sex Unconditional Model.  However, keep in mind that our point estimates for a probability of a boy were not what we had expected for "sex runs in families."  It may be that this discrepancy stems from behavioral aspects of family formation.  The next section on stopping rules explores types of couples' decisions may affect the relative proportions of family compositions in the data.  
     
