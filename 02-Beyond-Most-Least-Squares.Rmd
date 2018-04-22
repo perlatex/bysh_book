@@ -652,7 +652,7 @@ Waitgirl <- c(-14715.65,29433.31,29440.58)
 ```{r, tab1chp2, echo=FALSE}
 tab1chp2 <- data.frame(Untcol,Waitboy,Waitgirl)
 colnames(tab1chp2) <- c(" ","Waiting for a boy","Waiting for a girl")
-kable(tab1chp2, booktabs=T, caption="Measures of model performance: Waiting for a Booy vs. Waiting for a Girl Model.")
+kable(tab1chp2, booktabs=T, caption="Measures of model performance: Waiting for a Boy vs. Waiting for a Girl Model.")
 ```
 
 Smaller AIC and BIC are preferred, so here the Waiting for a Boy Model is judged superior to the Waiting for a Girl Model suggesting that couples waiting for a boy is a better explanation of the data than waiting for a girl. However, for either boys and girls, couples do not stop more frequently after the first occurrence.  
